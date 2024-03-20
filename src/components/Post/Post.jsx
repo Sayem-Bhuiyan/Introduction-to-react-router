@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Post = ({post}) => {
     const{id, title, body} = post;
+    const nevigate = useNavigate()
+
+    const handleShowDetails = () => {
+        nevigate(`/posts/${id}`)
+    }
 
     return (
         <div style={{
@@ -17,6 +22,7 @@ const Post = ({post}) => {
             <Link to={`/posts/${id}`}>
                 <button>Show Details</button>
             </Link>
+            <button onClick={handleShowDetails}>Click to show details</button>
         </div>
     );
 };
