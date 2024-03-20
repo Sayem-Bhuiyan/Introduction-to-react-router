@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const User = ({user}) => {
     const {id, name, username, phone} = user;
@@ -14,7 +15,10 @@ const User = ({user}) => {
             <h4>{id}</h4>
             <h3>Name: {name}</h3>
             <h4>Phone: {phone.split(' ')[0]}</h4>
-            <p>UserName: {username}</p>
+            <Link to={`/user/${id}`}>Show Details</Link>
+            <Link to={`/user/${id}`}>
+                <button>Click me</button>
+            </Link>
         </div>
     );
 };
